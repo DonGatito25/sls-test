@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://dn83ygbpovvvj"]
+
+[ext_resource type="Script" uid="uid://dviewyv1scqvj" path="res://shared/characters/movement.gd" id="1_7r8j2"]
+[ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="2_1t8cx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ukg1d"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7r8j2"]
+
+[node name="Player" type="CharacterBody2D"]
+scale = Vector2(2, 2)
+script = ExtResource("1_7r8j2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ukg1d")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("2_1t8cx")
+
+[node name="InteractionDetector" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionDetector"]
+scale = Vector2(2, 2)
+shape = SubResource("RectangleShape2D_7r8j2")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_horizontal_offset = 0.2
+drag_vertical_offset = 0.2

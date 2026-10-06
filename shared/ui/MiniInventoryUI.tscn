@@ -1,0 +1,30 @@
+[gd_scene load_steps=2 format=3 uid="uid://j4rlk0bftt24"]
+
+[ext_resource type="Script" uid="uid://bmmk7ua4ib2pl" path="res://shared/ui/mini_inventory_ui.gd" id="1_hcfs3"]
+
+[node name="MiniInventoryUi" type="CanvasLayer"]
+script = ExtResource("1_hcfs3")
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -162.0
+offset_bottom = 213.0
+grow_horizontal = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel"]
+layout_mode = 0
+offset_right = 162.0
+offset_bottom = 213.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer"]
+layout_mode = 2
+
+[node name="TitleLabel" type="Label" parent="Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Mini Inventory"
+
+[node name="ItemLabel" type="Label" parent="Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Empty"

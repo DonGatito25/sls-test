@@ -1,0 +1,61 @@
+[gd_scene load_steps=6 format=3 uid="uid://cy4dof1yf67bh"]
+
+[ext_resource type="PackedScene" uid="uid://dn83ygbpovvvj" path="res://shared/characters/PC.tscn" id="1_nx4xv"]
+[ext_resource type="PackedScene" uid="uid://rgm1xbc32jls" path="res://shared/characters/NPC.tscn" id="2_d08op"]
+[ext_resource type="PackedScene" uid="uid://yq8luxhij5iq" path="res://shared/dialogue/DialogueUI.tscn" id="3_wvpbo"]
+[ext_resource type="PackedScene" uid="uid://j4rlk0bftt24" path="res://shared/ui/MiniInventoryUI.tscn" id="4_kolrd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_65llp"]
+size = Vector2(1166, 20)
+
+[node name="TestRoom" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_nx4xv")]
+position = Vector2(577, 540)
+scale = Vector2(4, 4)
+
+[node name="Seth" parent="." instance=ExtResource("2_d08op")]
+position = Vector2(573, 117)
+scale = Vector2(4, 4)
+character_id = "character.sl.seth"
+dialogue_file = "res://dialogue/seth_test.sls"
+starting_section = "seth_cookie"
+
+[node name="Producer" parent="." instance=ExtResource("2_d08op")]
+position = Vector2(114, 300)
+scale = Vector2(4, 4)
+character_id = "cosmic.producer"
+dialogue_file = "res://stories/simple_life/dialogue/seth_test.sls"
+starting_section = "producer_start"
+
+[node name="WallTop" type="StaticBody2D" parent="."]
+position = Vector2(577, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallTop"]
+shape = SubResource("RectangleShape2D_65llp")
+
+[node name="WallBottom" type="StaticBody2D" parent="."]
+position = Vector2(579, 647)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallBottom"]
+shape = SubResource("RectangleShape2D_65llp")
+
+[node name="WallLeft" type="StaticBody2D" parent="."]
+position = Vector2(-1, 314)
+rotation = -1.5707964
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallLeft"]
+shape = SubResource("RectangleShape2D_65llp")
+
+[node name="WallLeft2" type="StaticBody2D" parent="."]
+position = Vector2(1156, 324)
+rotation = -1.5707964
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallLeft2"]
+shape = SubResource("RectangleShape2D_65llp")
+
+[node name="DialogueUi" parent="." instance=ExtResource("3_wvpbo")]
+
+[node name="MiniInventoryUi" parent="." instance=ExtResource("4_kolrd")]
+offset = Vector2(-30, 30)
+transform = Transform2D(1, 0, 0, 1, -30, 30)
